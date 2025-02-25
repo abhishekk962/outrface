@@ -2,8 +2,15 @@
 
 A tool that enables users to take advantage of the capabilities of local AI seamlessly without friction caused by multiple interfaces.
 
+### Features
+
+- **Ctrl + Space to Launch**: Quickly launch the app using the Ctrl + Space shortcut.
+- **Slash Commands**: Use slash commands to add files and clipboard content as reference.
+- **Custom Functions**: Utilize custom functions to make prompting easier.
+- **Seamless Integration**: Eliminate the need to surf through multiple AI interfaces with a single, seamless app.
+
 ### Preview
-![Preview](\public\images\preview.png)
+![Preview](./public/images/preview.png)
 
 ### Installation
 
