@@ -1,0 +1,179 @@
+body {
+  margin: 1vh;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: #333333;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 98vh;
+  width: 98vw;
+  border-radius: 10px;
+}
+
+.contents {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  /* background: linear-gradient(135deg, #1e1e1e, #2c2c2c); */
+  background: transparent;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.header {
+  position: relative;
+  top: 0;
+  width: 92%;
+  height: 4%;
+  padding: 4%;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  gap: 5%; /* Space between input and button */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 6px 4px 0px rgba(0, 0, 0, 0.2);
+  background-color: #444; /* Dark background */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.floating-typing-section {
+  padding: 1vh;
+  border: none;
+  font-size: 14px;
+  background: transparent;
+  color: #fff; /* Light text color */
+  width: 100%;
+  margin: 0; /* Remove margin */
+  outline: none;
+  -webkit-app-region: no-drag;
+}
+
+#send-btn {
+  border: none;
+  background: none;
+  background-color: transparent;
+  display: flex;
+}
+
+.floating-typing-section::placeholder {
+  color: #aaa; /* Light placeholder text color */
+}
+
+#send-btn:active {
+  transform: scale(0.95);
+}
+
+#send-btn:hover {
+  transform: scale(1.05);
+}
+
+.message-container {
+  position: fixed;
+  top: 12%; /* Adjust based on footer height */
+  height: 83%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: scroll;
+  cursor: default;
+  -webkit-app-region: no-drag;
+  /*hide scrollbar*/
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+.message-item {
+  white-space: pre-wrap;
+  background-color: rgb(219, 219, 219);
+  color: #333333;
+  padding: 10px 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  text-align: left;
+  font-size: 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 33%);
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.llm-message {
+  align-self: flex-start;
+}
+
+.special-element {
+  display: flex;
+  background-color: #232323;
+  color: #959595;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 5px;
+  cursor: pointer;
+  max-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  align-content: center;
+  justify-content: center;
+}
+.special-element::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.hover-text {
+  position: fixed;
+  top: 15%;
+  font-size: xx-small;
+  left: 25%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  max-width: 50%;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.hover-text.show {
+  opacity: 1;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: #2c2c2cda;
+  border-radius: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  color: white;
+  font-size: small;
+}
+.instructions code {
+  background-color: #3c7c81;
+  padding: 2px 4px;
+  margin: 2px 4px;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+}
+.instructions p {
+  margin: 2%;
+}

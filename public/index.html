@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Outrface</title>
+  </head>
+
+  <body>
+    <div class="contents">
+      <div class="header">
+        <input
+          type="text"
+          class="floating-typing-section"
+          id="user-input"
+          placeholder="Type here..."
+        />
+        <button id="send-btn"><img src="./icons/send.svg" alt="Send" /></button>
+      </div>
+      <div id="message-container" class="message-container">
+        <div class="instructions">
+          <p><code>/n</code>Start New Chat</p>
+          <p><code>/f</code>Use File Reference</p>
+          <p><code>/c</code>Use Clipboard Reference</p>
+        </div>
+      </div>
+      <!-- Message container -->
+    </div>
+    <script src="../src/renderer.js"></script>
+  </body>
+</html>

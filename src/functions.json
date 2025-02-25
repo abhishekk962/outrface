@@ -1,0 +1,32 @@
+[
+  {
+    "function": "create",
+    "prompt": "a short descriptive command for the task in the same format",
+    "example": [
+      {
+        "input": "add a sample input",
+        "output": "add a sample output"
+      }
+    ]
+  },
+  {
+    "function": "redact",
+    "prompt": "Replace names with [NAME], phone-numbers with [PHONE] and so on.",
+    "example": [
+      {
+        "input": "Jane Smith lives at 123 Main St, Anytown, USA.",
+        "output": "[NAME] lives at [REDACTED], Anytown, USA."
+      }
+    ]
+  },
+  {
+    "function": "restore",
+    "prompt": "Restore [PLACEHOLDER]s to their original values.",
+    "example": [
+      {
+        "input": "[NAME] lives at [REDACTED], Anytown, USA.",
+        "output": "Jane Smith lives at 123 Main St, Anytown, USA."
+      }
+    ]
+  }
+]
