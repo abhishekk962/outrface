@@ -84,7 +84,7 @@ body {
   box-sizing: border-box;
   overflow: scroll;
   cursor: default;
-  -webkit-app-region: no-drag;
+  -webkit-app-region: drag;
   /*hide scrollbar*/
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -104,6 +104,7 @@ body {
   font-size: 12px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   box-shadow: 3px 4px 6px 3px rgb(0 0 0 / 33%);
+  -webkit-app-region: no-drag;
 }
 
 .user-message {
@@ -176,4 +177,8 @@ body {
 }
 .instructions p {
   margin: 2%;
+}
+
+.instructions strong {
+  padding: 10px;
 }

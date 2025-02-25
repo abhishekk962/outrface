@@ -131,3 +131,19 @@ function hideHoverText() {
 function openFilePicker() {
   window.electronAPI.openFilePicker();
 }
+
+// Fetch functions from functions.json and populate instructions
+fetch('../src/functions.json')
+  .then(response => response.json())
+  .then(functions => {
+    const instructionsContainer = document.querySelector('.instructions');
+    const functionHeader = document.createElement('strong');
+    functionHeader.innerHTML = `Custom Functions`;
+    instructionsContainer.appendChild(functionHeader);
+    functions.forEach(func => {
+      const instructionItem = document.createElement('p');
+      instructionItem.innerHTML = `<code>/${func.function}</code> ${func.description}`;
+      instructionsContainer.appendChild(instructionItem);
+    });
+  })
+  .catch(error => console.error('Error loading functions:', error));

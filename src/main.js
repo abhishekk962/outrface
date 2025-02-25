@@ -26,6 +26,8 @@ const configPath = path.join(__dirname, "./config.json");
 const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 const modelPath = config.modelPath;
 
+const functions = JSON.parse(fs.readFileSync(path.join(__dirname, "./functions.json"), "utf-8"));
+
 // ----------------------------------------------------------------------------
 // LMStudioClient
 // ----------------------------------------------------------------------------
@@ -164,14 +166,20 @@ async function respond(userInputText) {
   setLoading(true);
   let model;
   model = await loadModel();
-  
+
+  // Check if userInputText matches any function
+  const matchedFunction = functions.find((func) => userInputText.toLowerCase().includes(func.function));
+  if (matchedFunction) {
+    userInputText = `You must respond like this: ${matchedFunction.example[0].output}\n${matchedFunction.prompt}\n`;
+  }
+
   if (file !== "") {
     let fileContents = await readFile(file);
-    userInputText = `${userInputText}\n${fileContents}`;
+    userInputText = `\n${fileContents}\n${userInputText}`;
   }
 
   if (clipText !== "") {
-    userInputText = `${userInputText}\n${clipText}`;
+    userInputText = `\n${clipText}\n${userInputText}`;
   }
 
   history.push({ role: "user", content: userInputText });
@@ -198,6 +206,7 @@ async function respond(userInputText) {
   }
   history.push({ role: "assistant", content: responseContent });
   saveHistory(history);
+  console.log(messages);
   return responseContent;
 }
 

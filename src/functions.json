@@ -1,31 +1,34 @@
 [
   {
-    "function": "create",
-    "prompt": "a short descriptive command for the task in the same format",
-    "example": [
-      {
-        "input": "add a sample input",
-        "output": "add a sample output"
-      }
-    ]
-  },
-  {
     "function": "redact",
-    "prompt": "Replace names with [NAME], phone-numbers with [PHONE] and so on.",
+    "description": "Redact PII from text",
+    "prompt": "For above text, replace names with [NAME], address with [ADDRESS] and so on.",
     "example": [
       {
         "input": "Jane Smith lives at 123 Main St, Anytown, USA.",
-        "output": "[NAME] lives at [REDACTED], Anytown, USA."
+        "output": "[NAME] lives at [ADDRESS], Anytown, USA."
       }
     ]
   },
   {
     "function": "restore",
+    "description": "Restore redacted PII",
     "prompt": "Restore [PLACEHOLDER]s to their original values.",
     "example": [
       {
-        "input": "[NAME] lives at [REDACTED], Anytown, USA.",
+        "input": "[NAME] lives at [ADDRESS], Anytown, USA.",
         "output": "Jane Smith lives at 123 Main St, Anytown, USA."
+      }
+    ]
+  },
+  {
+    "function": "tabulate",
+    "description": "Convert text to table",
+    "prompt": "Extract information and transform it into a csv table format.",
+    "example": [
+      {
+        "input": "Inception (2010) - IMDb rating: [8.8]\nGladiator (2000) - IMDb rating: [8.5]\nJoker (2019) - IMDb rating: [8.4]\nTitanic (1997) - IMDb rating: [7.8]\nInterstellar (2014) - IMDb rating: [8.6]\n",
+        "output": "Title,Year,IMDb Rating\nInception,2010,8.8\nGladiator,2000,8.5\nJoker,2019,8.4\nTitanic,1997,7.8\nInterstellar,2014,8.6\n"
       }
     ]
   }
